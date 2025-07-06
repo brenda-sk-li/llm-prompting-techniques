@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Prompting Techniques Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for body and color scheme based on user's example */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000066; /* Deep Night Blue */
+            color: #F4F4F4; /* Light off-white for text */
+        }
+        .container-card {
+            background-color: rgba(244, 244, 244, 0.15); /* Semi-transparent white for cards */
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Darker shadow for dark theme */
+            padding: 2rem;
+        }
+        .header-gradient-text {
+            background: linear-gradient(90deg, #FFC000, #6600FF); /* Vibrant Orange to Vibrant Purple */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Adjusted line height and added vertical padding for better character display */
+            line-height: 1.2; /* Standard line height */
+            padding-top: 0.5rem; /* Add padding above text */
+            padding-bottom: 0.5rem; /* Add padding below text */
+            display: inline-block; /* Ensure padding is applied correctly */
+        }
+        /* Ensure Tailwind's responsive font sizes are applied */
+        h1.header-gradient-text {
+            font-size: 48px; /* Reverted to 48px for better visual appeal */
+        }
+
+        .table-header-bg {
+            background-color: #555555; /* Changed to a medium-dark gray for more contrast */
+            color: #FFC000; /* Vibrant Orange for table header text */
+        }
+        /* Bold table headers */
+        th {
+            font-weight: 700; /* Bold for table headers */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(244, 244, 244, 0.1); /* Subtle border */
+        }
+        tr:hover {
+            background-color: rgba(244, 244, 244, 0.05); /* Hover effect for table rows */
+        }
+        .example-text {
+            color: #E0E0E0; /* Slightly lighter text for examples on dark background */
+        }
+        .highlight-text {
+            font-weight: 700; /* Bold for highlighted text */
+            color: #FFC000; /* Vibrant Orange (Mango) for highlighted words */
+        }
+        .technique-name {
+            color: #33CC33; /* Bright Green for the first column text */
+            font-weight: 600; /* Slightly bold for readability */
+        }
+
+        /* Style for the "Back to Top" button */
+        #back-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FFC000; /* Vibrant Orange */
+            color: #000066; /* Deep Night Blue */
+            padding: 1rem 1.25rem;
+            border-radius: 9999px; /* Fully rounded */
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: none; /* Hidden by default */
+            z-index: 1000; /* Ensure it's above other content */
+            align-items: center; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+            gap: 0.5rem; /* Space between icon and text */
+        }
+
+        #back-to-top-btn:hover {
+            background-color: #FFD700; /* Lighter orange on hover */
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="max-w-7xl mx-auto py-8">
+        <!-- Header Section -->
+        <header class="text-center mb-12 py-8 px-4">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-8 header-gradient-text">
+                Mastering LLM Prompting Techniques 💡
+            </h1>
+            <p class="text-xl text-gray-300">
+                A comprehensive guide to effectively communicate with Large Language Models.
+            </p>
+        </header>
+
+        <!-- Infographic Table -->
+        <div class="container-card overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-700">
+                <thead class="table-header-bg">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs uppercase tracking-wider rounded-tl-xl">
+                            Prompting Technique
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs uppercase tracking-wider">
+                            Use It For
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs uppercase tracking-wider">
+                            How to Use It
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs uppercase tracking-wider rounded-tr-xl">
+                            Example
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-700">
+                    <!-- 1. Zero-Shot Prompting -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">1. Zero-Shot Prompting</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Simple, straightforward tasks where the model's general knowledge is sufficient.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Just <span class="highlight-text">state your request directly</span>; no examples needed.</td>
+                        <td class="px-6 py-4 whitespace-normal example-text">Write a haiku about a rainy day.</td>
+                    </tr>
+                    <!-- 2. One-Shot Prompting -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">2. One-Shot Prompting</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Teaching the model a specific format, style, or specific custom behavior with a single example.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300"><span class="highlight-text">Provide one example</span> of an input-output pair before your actual query.</td>
+                        <td class="px-6 py-4 whitespace-normal example-text">Make this sentence sound more formal: 'Hey, wanna grab coffee?' -> 'Would you care to join me for a cup of coffee?'</td>
+                    </tr>
+                    <!-- 3. Few-Shot Prompting -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">3. Few-Shot Prompting</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Guiding the model on complex patterns, nuanced instructions, or specific data transformations by providing several examples.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300"><span class="highlight-text">Provide multiple (2-5 typically) input-output examples</span> before your actual query.</td>
+                        <td class="px-6 py-4 whitespace-normal example-text">Here are some examples to classify sentiment: <br>- I love this! -> Positive <br>- It's okay. -> Neutral <br>- I hate it.-> Negative</td>
+                    </tr>
+                    <!-- 4. Prompt Chaining -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">4. Prompt Chaining</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Breaking down a large, complex task into smaller, sequential sub-tasks, where the output of one step becomes the input for the next.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">This is a workflow: <span class="highlight-text">send a prompt, get output, use that output in the next prompt</span>. No specific phrase in a single prompt.</td>
+                        <td class="px-6 py-4 whitespace-normal example-text">Prompt 1: "Summarize the following article: [Article Text]" Prompt 2 (using output from Prompt 1): "<span class="highlight-text">Based on</span> this summary: [Summary Text], draft a 3-point email to stakeholders."</td>
+                    </tr>
+                    <!-- 5. Chain-of-Thought (CoT) -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">5. Chain-of-Thought (CoT)</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Solving complex problems that require logical, step-by-step reasoning (e.g., math word problems, multi-step logic).</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Add instructions like <span class="highlight-text">"Let's think step by step," "Walk me through your reasoning," or "Show your work."</span></td>
+                        <td class="px-6 py-4 whitespace-normal example-text">If John has 5 apples and gives 2 to Sarah, then buys 3 more, how many apples does John have? <span class="highlight-text">Let's think step by step</span>.</td>
+                    </tr>
+                    <!-- 6. Tree-of-Thought (ToT) -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">6. Tree-of-Thought (ToT)</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Exploring multiple possible solutions, evaluating alternatives, and self-correcting or selecting optimal paths in complex problem-solving or decision-making.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300"><span class="highlight-text">Instruct the model to generate multiple options for a given step, evaluate them, and then choose the best one.</span> Optionally, <span class="highlight-text">ask for the output to be able to backtrack</span> if a path proves unpromising.</td>
+                        <td class="px-6 py-4 whitespace-normal example-text">For the product launch, <span class="highlight-text">brainstorm</span> 3 distinct market entry strategies. For each strategy, <span class="highlight-text">evaluate and analyze its pros and cons regarding ROI and potential risks</span>. Then, <span class="highlight-text">choose the single most promising strategy and justify your choice</span>.</td>
+                    </tr>
+                    <!-- 7. Meta Prompting -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">7. Meta Prompting</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Using the LLM to help you refine, optimize, or generate better prompts based on your goals and desired output characteristics.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300"><span class="highlight-text">Ask the LLM to act as a "prompt engineer" or "prompt optimizer."</span> Provide your objective and initial prompt (or idea), and ask for improvements.</td>
+                        <td class="px-6 py-4 whitespace-normal example-text"><span class="highlight-text">Act as</span> a prompt engineer. My goal is to get a short, engaging social media post. Here's my draft prompt: 'Write about our new product.' <span class="highlight-text">How can I improve this prompt</span> using the T.C.R.E.I. framework to get a better result?</td>
+                    </tr>
+                    <!-- 8. Role-Playing / Persona Prompting -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">8. Role-Playing / Persona Prompting</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Tailoring the output's tone, style, knowledge, and perspective to a specific audience or scenario.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Begin the prompt by <span class="highlight-text">defining a clear persona</span> for the LLM (e.g., "Act as a marketing expert," "You are a friendly customer service agent").</td>
+                        <td class="px-6 py-4 whitespace-normal example-text"><span class="highlight-text">Act as</span> a motivational coach. Write a short paragraph encouraging someone who feels stuck in their career to take the next step.</td>
+                    </tr>
+                    <!-- 9. Retrieval-Augmented Generation (RAG) - Prompting Simulation -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">9. Retrieval-Augmented Generation (RAG) - Prompting Simulation</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Grounding responses in specific, provided external information to ensure factual accuracy and avoid hallucinations.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300"><span class="highlight-text">Provide relevant context</span> (documents, data, snippets) within the prompt itself and <span class="highlight-text">instruct the model to use only this information for its response.</span></td>
+                        <td class="px-6 py-4 whitespace-normal example-text"><span class="highlight-text">Context</span>: Product X was launched last year, sales: Q1=$1M, Q2=$1.5M, Q3=$1.2M, Q4=$1.8M. <span class="highlight-text">Task</span>: Based only on the provided sales data, describe the sales trend for Product X last year.</td>
+                    </tr>
+                    <!-- 10. Constraint-Based Prompting -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">10. Constraint-Based Prompting</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Ensuring the LLM's output adheres to specific rules, formats, lengths, or content inclusions/exclusions.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Clearly state all the rules and limitations in your prompt <span class="highlight-text">using keywords like "must," "only," "avoid," "max X words," "in JSON format."</span></td>
+                        <td class="px-6 py-4 whitespace-normal example-text">Write a 100-word product description for a new eco-friendly water bottle. It must highlight sustainability. Do not mention plastic. Include a call to action to visit our website.</td>
+                    </tr>
+                    <!-- 11. Least-to-Most Prompting -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">11. Least-to-Most Prompting</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Solving very complex problems by breaking them into a series of smaller, dependent sub-problems, with each step building on the last.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300"><span class="highlight-text">Guide</span> the model through each sub-problem sequentially, feeding the output of one step into the prompt for the next.</td>
+                        <td class="px-6 py-4 whitespace-normal example-text">Problem: Evaluate the profitability of selling 500 units of Product A given its costs and pricing. <span class="highlight-text">Step 1</span>: Calculate total revenue for 500 units at $20/unit. <span class="highlight-text">Step 2</span>: Calculate total variable costs for 500 units at $8/unit. <span class="highlight-text">Step 3</span>: Calculate total fixed costs ($1,500). <span class="highlight-text">Step 4</span>: Calculate net profit using results from steps 1, 2, and 3.</td>
+                    </tr>
+                    <!-- 12. Self-Consistency -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">12. Self-Consistency</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Improving reliability and accuracy by generating multiple diverse reasoning paths and selecting the most consistent answer.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300"><span class="highlight-text">Instruct the model to generate multiple attempts</span> at solving a problem (often with CoT), then analyze and select the most common result. (Often requires multiple turns or an external aggregation logic).</td>
+                        <td class="px-6 py-4 whitespace-normal example-text"><span class="highlight-text">Solve</span> the following riddle. <span class="highlight-text">Generate 3 different step-by-step reasoning paths that lead to an answer. Then, state the final answer that appears most frequently</span> among your reasoning paths.</td>
+                    </tr>
+                    <!-- 13. Self-Improving / Self-Refinement -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">13. Self-Improving / Self-Refinement</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Critiquing and refining its own generated output based on specified criteria, leading to higher quality and more polished responses.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300"><span class="highlight-text">Instruct the model to critically evaluate its previous response, identify flaws or missing elements, and then revise/regenerate</span> based on that critique.</td>
+                        <td class="px-6 py-4 whitespace-normal example-text">Generate an initial proposal for [X]. Now, <span class="highlight-text">assume you are a quality assurance specialist. Review your proposal</span> for logical consistency, completeness, and clarity. List any issues found. Finally, <span class="highlight-text">revise the original proposal</span> to address these issues.</td>
+                    </tr>
+                    <!-- 14. Maieutic (Socratic) Prompting -->
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-normal technique-name">14. Maieutic (Socratic) Prompting</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300">Guiding the model to a deeper understanding, self-correction, or discovery of an answer through a series of probing questions. Ideal for complex, ambiguous, or open-ended problems.</td>
+                        <td class="px-6 py-4 whitespace-normal text-gray-300"><span class="highlight-text">Ask follow-up questions that challenge, clarify, or expand</span> on the model's previous responses. <span class="highlight-text">Encourage it to explain its reasoning, consider counter-arguments, or break down its solution.</span></td>
+                        <td class="px-6 py-4 whitespace-normal example-text"><span class="highlight-text">State three reasons</span> we should launch in Japan first. <span class="highlight-text">Now challenge each reason with one counter-argument. Finish with your final verdict</span> in 2 lines.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer Section -->
+        <footer class="text-center mt-12 py-8 text-gray-300 text-sm">
+            <p>&copy; 2025 LLM Prompting Guide. All rights reserved.</p>
+            <p>Created on July 6, 2025 By Brenda Li in Canada.</p>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button id="back-to-top-btn" onclick="scrollToTop()">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+            Top
+        </button>
+    </div>
+
+    <script>
+        // Get the button
+        let backToTopBtn = document.getElementById("back-to-top-btn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.style.display = "flex"; /* Use flex to center icon and text */
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll
+            });
+        }
+    </script>
+</body>
+</html>
